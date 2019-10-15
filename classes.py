@@ -5,7 +5,7 @@ import random
 class Ability:
     def __init__(self, name, power):
         self.name = name
-        self.power = ability_power
+        self.power = power
 
     def attack(self):
         self.attack = random.randint(0, self.strength)
@@ -17,8 +17,8 @@ class Ability:
 class Weapon(Ability):
     def __init__(self, name, type, strength):
         super().__init__(name, power)
-        self.name = weapon_name
-        self.type = weapon_type
+        self.name = name
+        self.type = type
         #Inital Strength
         self.strength = 10
 
@@ -31,16 +31,16 @@ class Weapon(Ability):
 # Armor
 class Armor:
     def __init__(self, name, type, protection):
-        self.name = armor_name
-        self.type = armor_type
+        self.name = name
+        self.type = type
         #Initial Protection
         self.protection = 10
 
 #Generic Actor Class
 class Actor:
     def __init__(self, name, age, starting_hp, starting_atk, starting_def):
-        self.name = actor_name
-        self.age = actor_age
+        self.name = name
+        self.age = age
         #Stats
         self.starting_hp = starting_hp
         self.starting_atk = starting_atk
@@ -51,12 +51,13 @@ class Actor:
         self.weapons = []
         #Misc
         self.important_NPC = False #(Set to True so they cannot die, False for able to die.)
-        self.boss = False #(Set to True when they are marked as a boss, False by default.)
 
+#Protagonist
 class Protagonist(Actor):
-    super().__init__(name, age, starting_hp, starting_atk, starting_def)
-    self.name = protag_name
-    self.age = protag_age
+    def __init__(self, name, age, starting_hp, starting_atk, starting_def):
+        super().__init__(self, starting_hp, starting_atk, starting_def)
+    self.name = name
+    self.age = age
     self.starting_hp = starting_hp
     self.starting_atk = starting_atk
     self.starting_def = starting_def
@@ -64,7 +65,21 @@ class Protagonist(Actor):
     self.cooking_level = 0
     self.smithing_level = 0
     self.mining_level = 0
-    #
+
+#Enemy
+class Enemy:
+    def __init__(self, name, level, hp, atk, defense):
+        self.name = name
+        self.level = level
+        self.hp = hp
+        self.atk = atk
+        self.defense = defense
+        #Special
+        self.boss = False #(Set to True when they are marked as a boss, False by default.)
+
+
+
+
 
 
 
