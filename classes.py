@@ -36,6 +36,12 @@ class Armor:
         #Initial Protection
         self.protection = 10
 
+     def defend(self):
+        ''' Return a random value between 0 and the initialized max_block strength. '''
+        self.defense_value = random.randint(0,1500)
+        self.max_block = 1500
+        return self.defense_value
+
 #Generic Actor Class
 class Actor:
     def __init__(self, name, age, starting_hp, starting_atk, starting_def):
@@ -76,6 +82,7 @@ class Enemy:
         self.defense = defense
         #Special
         self.boss = False #(Set to True when they are marked as a boss, False by default.)
+
 
 
 

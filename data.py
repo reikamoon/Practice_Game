@@ -1,4 +1,4 @@
-from game import *
+from classes import *
 
 reika = Protagonist("Reika")
 reikaclass = "Wanderer"
@@ -22,7 +22,7 @@ fuyustartingweapon = Weapon("Kanzashi no Hana", "Dagger", 50)
 fuyustartingweapon2 = Weapon("Kanzashi no Tsuki", "Dagger", 50)
 fuyuarmor = Armor("Kuroi Kimono", "Torso", 10)
 fuyuacc = Armor("Kanzashi no Fuyu", "Head", 4)
-fuyuacc2 = 
+
 
 
 
