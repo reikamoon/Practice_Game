@@ -103,6 +103,11 @@ class Protagonist(Actor):
         else:
             return True
 
+    def retreat():
+        print("{0} retreats!".format(self.name))
+        print("Battle has been lost. No rewards claimed.")
+        game_is_running = False
+
     def fight(self, opponent):
         while self.is_alive() == True and opponent.is_alive() == True:
             if len(self.abilities) == 0 and len(opponent.abilities) == 0:
@@ -110,18 +115,23 @@ class Protagonist(Actor):
                 break
             damage = self.attack()
             opponent_damage = opponent.attack()
-            print("Battle Start!")
-            print("{0} vs. {1}!".format(self.name, opponent.name))
-            print("{0} attacks!".format(opponent.name))
-            self.take_damage(opponentdamage)
-            print("{0} took damage! Remaining health: {0}".format(self.name, self.current_health))
-            print("{0}: (What should I do now?)".format(self.name))
-            print("[Select a choice:]")
-            print("[A] Fight")
-            print("[B] Defend")
-            print("[C] Item")
-            print("[D] Retreat")
-        
+            if battle = True:
+                print("Battle Start!")
+                print("{0} vs. {1}!".format(self.name, opponent.name))
+                print("{0} attacks!".format(opponent.name))
+                self.take_damage(opponentdamage)
+                print("{0} took damage! Remaining health: {0}".format(self.name, self.current_health))
+                print("{0}: (What should I do now?)".format(self.name))
+                print("[Select a choice:]")
+                print("[A] Fight")
+                print("[B] Defend")
+                print("[C] Item")
+                print("[D] Retreat")
+                user_input = input("Make your decision.")
+                user_input = user_input.lower()
+                    if user_input == "a":
+
+
             # opponentdamage = opponent.attack()
             # opponent.take_damage(damage)
             # self.take_damage(opponentdamage)
