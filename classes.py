@@ -104,6 +104,15 @@ class Protagonist(Actor):
         else:
             return True
 
+    def fight(self, opponent):
+        while self.is_alive() == True and opponent.is_alive() == True:
+            if len(self.abilities) == 0 and len(opponent.abilities) == 0:
+                print("{0} and {1} both lack abilities! It's a draw!".format(self.name, opponent.name))
+                break
+            damage = self.attack()
+            opponentdamage = opponent.attack()
+            opponent.take_damage(damage)
+            self.take_damage(opponentdamage)
 
 #Enemy
 class Enemy:
