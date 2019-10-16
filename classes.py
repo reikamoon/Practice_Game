@@ -96,7 +96,6 @@ class Protagonist(Actor):
     def take_damage(self, damage):
         self.current_health = self.current_health - damage - self.defense_value
         return self.current_health
-        print("Took damage! Remaining health: {0}".format(self.current_health))
 
     def is_alive(self):
         if self.current_health < 0:
@@ -113,7 +112,16 @@ class Protagonist(Actor):
             opponent_damage = opponent.attack()
             print("Battle Start!")
             print("{0} vs. {1}!".format(self.name, opponent.name))
-
+            print("{0} attacks!".format(opponent.name))
+            self.take_damage(opponentdamage)
+            print("{0} took damage! Remaining health: {0}".format(self.name, self.current_health))
+            print("{0}: (What should I do now?)".format(self.name))
+            print("[Select a choice:]")
+            print("[A] Fight")
+            print("[B] Defend")
+            print("[C] Item")
+            print("[D] Retreat")
+        
             # opponentdamage = opponent.attack()
             # opponent.take_damage(damage)
             # self.take_damage(opponentdamage)
