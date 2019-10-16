@@ -79,7 +79,31 @@ class Protagonist(Actor):
 
     def add_weapon():
         self.weapons.append(weapon)
-    
+
+     def attack(self):
+        total = 0
+        for ability in self.abilities:
+            total += ability.attack()
+        return total
+
+    def defend(self, damage_amt):
+        total_armor = 0
+        for armor in self.armors:
+            block = armor.block()
+            total_armor = total_armor + block
+        return sum
+
+    def take_damage(self, damage):
+        self.current_health = self.current_health - damage - self.defense_value
+        return self.current_health
+        print("Took damage! Remaining health: {0}".format(self.current_health))
+
+    def is_alive(self):
+        if self.current_health < 0:
+            return False
+        else:
+            return True
+
 
 #Enemy
 class Enemy:
