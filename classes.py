@@ -37,7 +37,6 @@ class Armor:
         self.protection = 10
 
      def defend(self):
-        ''' Return a random value between 0 and the initialized max_block strength. '''
         self.defense_value = random.randint(0,1500)
         self.max_block = 1500
         return self.defense_value
@@ -71,6 +70,16 @@ class Protagonist(Actor):
     self.cooking_level = 0
     self.smithing_level = 0
     self.mining_level = 0
+
+    def add_ability():
+        self.abilities.append(ability)
+
+    def add_armor():
+        self.armors.append(armor)
+
+    def add_weapon():
+        self.weapons.append(weapon)
+    
 
 #Enemy
 class Enemy:
