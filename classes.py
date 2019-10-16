@@ -110,9 +110,13 @@ class Protagonist(Actor):
                 print("{0} and {1} both lack abilities! It's a draw!".format(self.name, opponent.name))
                 break
             damage = self.attack()
-            opponentdamage = opponent.attack()
-            opponent.take_damage(damage)
-            self.take_damage(opponentdamage)
+            opponent_damage = opponent.attack()
+            print("Battle Start!")
+            print("{0} vs. {1}!".format(self.name, opponent.name))
+
+            # opponentdamage = opponent.attack()
+            # opponent.take_damage(damage)
+            # self.take_damage(opponentdamage)
 
 #Enemy
 class Enemy:
