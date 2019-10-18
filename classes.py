@@ -41,6 +41,17 @@ class Armor:
         self.max_block = 1500
         return self.defense_value
 
+class Item:
+    def __init__(self, name, type, heal_amount):
+        self.name = name
+        self.type = type
+        #Initial Heal Amount
+        self.heal_amount = 50
+
+    def heal_item(self, heal_amount):
+        self.current_health = heal_amount + self.current_health
+        return sum
+
 #Generic Actor Class
 class Actor:
     def __init__(self, name, age, starting_hp, starting_atk, starting_def):
@@ -54,6 +65,7 @@ class Actor:
         self.abilities = []
         self.armors = []
         self.weapons = []
+        self.items = []
         #Misc
         self.important_NPC = False #(Set to True so they cannot die, False for able to die.)
 
@@ -70,6 +82,10 @@ class Protagonist(Actor):
     self.cooking_level = 0
     self.smithing_level = 0
     self.mining_level = 0
+
+    def add_item():
+        self.items.append(item)
+        Item_in_Inventory = True
 
     def add_ability():
         self.abilities.append(ability)
@@ -115,7 +131,7 @@ class Protagonist(Actor):
                 break
             damage = self.attack()
             opponent_damage = opponent.attack()
-            if battle = True:
+            while battle == True:
                 print("Battle Start!")
                 print("{0} vs. {1}!".format(self.name, opponent.name))
                 print("{0} attacks!".format(opponent.name))
@@ -129,7 +145,25 @@ class Protagonist(Actor):
                 print("[D] Retreat")
                 user_input = input("Make your decision.")
                 user_input = user_input.lower()
-                    if user_input == "a":
+                    if user_input.lower() == "a":
+                        print("{0} attacks!".format(self.name))
+                        self.fight(opponent)
+                    if user_input.lower() == "b":
+                        print("{0} defends.".format(self.name))
+                        self.defends()
+                        self.take_damage(opponentdamage)
+                    if user_input.lower() == "c":
+                        if Item_in_Inventory == True
+                            print("{0} uses a potion!".format(self.name))
+                            self.heal_item()
+                        else:
+                            print("No items in inventory!")
+                    if user.input.lower() == "d":
+                        self.retreat()
+
+
+
+
 
 
             # opponentdamage = opponent.attack()
